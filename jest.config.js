@@ -35,6 +35,7 @@ window.URL = {
   createObjectURL: () => 'stub'
 }
 
+// mock for react-modal library
 jest.mock('react-modal', () => ({ children }) => (
   <div className="modal">{children}</div>
 ))

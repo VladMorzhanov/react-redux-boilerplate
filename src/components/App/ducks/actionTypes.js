@@ -1,0 +1,4 @@
+export default {
+  HIDE_LOADER: 'HIDE_LOADER',
+  SHOW_LOADER: 'SHOW_LOADER'
+}
