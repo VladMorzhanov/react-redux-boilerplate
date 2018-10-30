@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { createSelector } from 'reselect'
 import { connect } from 'react-redux'
 import Header from '../shared/Header/Header'
 import Container from '../shared/Container/Container'
-import { homeSelectors, homeActions } from './ducs'
+import { homeSelectors, homeActions } from './ducks'
 import { appActions } from '../App/ducks'
 
 const Home = ({
@@ -15,7 +14,7 @@ const Home = ({
 }) => (
   <>
     <Header title="Home Page" />
-    <Container content="Home page content">
+    <Container title="Home page content">
       <button type="button" onClick={increaseCounter}>
         +
       </button>
@@ -39,7 +38,7 @@ Home.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  counter: createSelector(homeSelectors.getCounter(state))
+  counter: homeSelectors.getCounter(state)
 })
 
 const mapDispatchToProps = dispatch => ({

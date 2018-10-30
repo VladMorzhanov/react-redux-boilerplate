@@ -4,7 +4,7 @@ import { createSelector } from 'reselect'
 import { connect } from 'react-redux'
 import Header from '../shared/Header/Header'
 import Container from '../shared/Container/Container'
-import { profileActions, profileSelectors } from './ducs'
+import { profileActions, profileSelectors } from './ducks'
 
 export class Profile extends React.Component {
   componentDidMount() {
@@ -17,7 +17,7 @@ export class Profile extends React.Component {
     return (
       <>
         <Header title="Profile Page" />
-        <Container content="Profile page content">
+        <Container title="Profile page content">
           <div>
             <span>Username: </span>
             {username}

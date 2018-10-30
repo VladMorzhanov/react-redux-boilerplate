@@ -1,5 +1,4 @@
 import React from 'react'
-import { observer } from 'mobx-react'
 
 const Header = ({ title }) => (
   <header>
@@ -7,4 +6,4 @@ const Header = ({ title }) => (
   </header>
 )
 
-export default observer(Header)
+export default Header

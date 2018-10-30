@@ -1,16 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
-export const Container = ({ uiStore, content }) => (
+export const Container = ({ children, title }) => (
   <div className="container">
-    {content}
-    {uiStore.user.name}
+    <div>{title}</div>
+    {children}
   </div>
 )
 
-const mapStateToProps = state => ({
-  data: state.dataSets.data,
-  counters: state.dataSets.counters
-})
-
-export default connect(mapStateToProps)(Container)
+export default Container
