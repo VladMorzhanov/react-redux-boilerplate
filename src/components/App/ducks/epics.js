@@ -1,8 +1,17 @@
-import * as actionTypes from './actionTypes'
+import { ofType, mergeMap, catchError } from 'rxjs'
+import actionTypes from './actionTypes'
+import { finishAsyncAction, failedAsyncAction } from './actions'
 
-const exampleEpic = action$ =>
-  action$.ofType(actionTypes.HIDE_LOADER).switchMap(el => el)
+const asyncAction = action$ =>
+  action$.pipe(
+    ofType(actionTypes.START_ASYNC_ACTION),
+    mergeMap(action =>
+      setTimeout(() => {
+        finishAsyncAction(action.payload)
+      }, 100)
+    ).pipe(catchError(error => failedAsyncAction(error)))
+  )
 
 export default {
-  exampleEpic
+  asyncAction
 }

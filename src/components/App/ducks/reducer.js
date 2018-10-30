@@ -1,19 +1,20 @@
 import { handleActions } from 'redux-actions'
-import * as types from './actionTypes'
+import types from './actionTypes'
 
 const initialState = {
-  showLoader: true
+  data: [0, 1, 2]
 }
 
-const UiReducer = {
-  [types.SHOW_LOADER]: state => ({
-    ...state,
-    showLoader: true
+const AppReducer = {
+  [types.START_ASYNC_ACTION]: state => ({
+    ...state
   }),
-  [types.HIDE_LOADER]: state => ({
-    ...state,
-    showLoader: false
+  [types.FAILED_ASYNC_ACTION]: state => ({
+    ...state
+  }),
+  [types.FINISHED_ASYNC_ACTION]: state => ({
+    ...state
   })
 }
 
-export default handleActions(UiReducer, initialState)
+export default handleActions(AppReducer, initialState)

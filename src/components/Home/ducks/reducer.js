@@ -1,19 +1,19 @@
 import { handleActions } from 'redux-actions'
-import * as types from './actionTypes'
+import types from './actionTypes'
 
 const initialState = {
-  showLoader: true
+  counter: 0
 }
 
-const UiReducer = {
-  [types.SHOW_LOADER]: state => ({
+const HomeReducer = {
+  [types.HOME_INCREASE_COUNTER]: state => ({
     ...state,
-    showLoader: true
+    counter: state.counter + 1
   }),
-  [types.HIDE_LOADER]: state => ({
+  [types.HOME_DECREASE_COUNTER]: state => ({
     ...state,
-    showLoader: false
+    counter: state.counter - 1
   })
 }
 
-export default handleActions(UiReducer, initialState)
+export default handleActions(HomeReducer, initialState)

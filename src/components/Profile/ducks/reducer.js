@@ -1,19 +1,19 @@
 import { handleActions } from 'redux-actions'
-import * as types from './actionTypes'
+import types from './actionTypes'
 
 const initialState = {
-  showLoader: true
+  email: 'example@email.com',
+  username: 'example'
 }
 
-const UiReducer = {
-  [types.SHOW_LOADER]: state => ({
+const ProfileReducer = {
+  [types.FETCH_USER_DATA]: state => state,
+  [types.FETCHED_USER_DATA]: (state, { payload }) => ({
     ...state,
-    showLoader: true
+    email: payload.email,
+    username: payload.username
   }),
-  [types.HIDE_LOADER]: state => ({
-    ...state,
-    showLoader: false
-  })
+  [types.FAILED_FETCH_USED_DATA]: state => state
 }
 
-export default handleActions(UiReducer, initialState)
+export default handleActions(ProfileReducer, initialState)

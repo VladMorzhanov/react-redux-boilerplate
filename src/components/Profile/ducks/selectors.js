@@ -1,9 +1,11 @@
 import { createSelector } from 'reselect'
 
-const uiSelector = state => state
+const profileSelector = state => state
 
-const showLoaderSelector = createSelector(uiSelector, ui => ui.showLoader)
+const getUsername = createSelector(profileSelector, state => state.username)
+const getUserEmail = createSelector(profileSelector, state => state.email)
 
 export default {
-  showLoaderSelector
+  getUsername,
+  getUserEmail
 }

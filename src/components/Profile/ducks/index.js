@@ -1,7 +1,7 @@
 import reducer from './reducer'
 
-export { default as appActions } from './actions'
-export { default as appEpics } from './epics'
-export { default as appTypes } from './actionTypes'
-export { default as appSelectors } from './selectors'
+export { default as profileActions } from './actions'
+export { default as profileEpics } from './epics'
+export { default as profileTypes } from './actionTypes'
+export { default as profileSelectors } from './selectors'
 export default reducer

@@ -1,10 +1,12 @@
 import { createAction } from 'redux-actions'
-import * as types from './actionTypes'
+import types from './actionTypes'
 
-export const showLoader = createAction(types.SHOW_LOADER)
-export const hideLoader = createAction(types.HIDE_LOADER)
+export const fetchUserData = createAction(types.FETCH_USER_DATA)
+export const fetchedUserData = createAction(types.FETCHED_USER_DATA)
+export const failedFetchUserData = createAction(types.FAILED_FETCH_USED_DATA)
 
 export default {
-  showLoader,
-  hideLoader
+  fetchUserData,
+  fetchedUserData,
+  failedFetchUserData
 }

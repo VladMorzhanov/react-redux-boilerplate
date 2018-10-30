@@ -1,10 +1,12 @@
 import { createAction } from 'redux-actions'
-import * as types from './actionTypes'
+import types from './actionTypes'
 
-export const showLoader = createAction(types.SHOW_LOADER)
-export const hideLoader = createAction(types.HIDE_LOADER)
+export const startAsyncAction = createAction(types.STARTED_ASYNC_ACTION)
+export const finishAsyncAction = createAction(types.FINISHED_ASYNC_ACTION)
+export const failedAsyncAction = createAction(types.FAILED_ASYNC_ACTION)
 
 export default {
-  showLoader,
-  hideLoader
+  startAsyncAction,
+  finishAsyncAction,
+  failedAsyncAction
 }

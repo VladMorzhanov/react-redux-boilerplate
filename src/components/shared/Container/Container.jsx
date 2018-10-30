@@ -1,11 +1,16 @@
 import React from 'react'
-import { inject, observer } from 'mobx-react'
+import { connect } from 'react-redux'
 
-const Container = ({ uiStore, content }) => (
+export const Container = ({ uiStore, content }) => (
   <div className="container">
     {content}
     {uiStore.user.name}
   </div>
 )
 
-export default inject('uiStore')(observer(Container))
+const mapStateToProps = state => ({
+  data: state.dataSets.data,
+  counters: state.dataSets.counters
+})
+
+export default connect(mapStateToProps)(Container)

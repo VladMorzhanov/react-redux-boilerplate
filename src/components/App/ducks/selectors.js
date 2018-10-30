@@ -1,9 +1,9 @@
 import { createSelector } from 'reselect'
 
-const uiSelector = state => state
+const appSelector = state => state
 
-const showLoaderSelector = createSelector(uiSelector, ui => ui.showLoader)
+const getData = createSelector(appSelector, state => state.data)
 
 export default {
-  showLoaderSelector
+  getData
 }
