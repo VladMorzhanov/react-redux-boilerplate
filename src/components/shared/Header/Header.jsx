@@ -1,3 +1,4 @@
+import './Header.styl'
 import React from 'react'
 
 const Header = ({ title }) => (

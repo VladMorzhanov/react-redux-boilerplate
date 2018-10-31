@@ -13,15 +13,6 @@ const profileAsyncAction = (action$, state$) =>
         email: `#${state$.value.profile.email}`
       })
     ),
-    // map(action =>
-    //   fetchedUserData({
-    //     ...action,
-    //     payload: {
-    //       username: `${state$.profile.username}#`,
-    //       email: `#${state$.profile.email}`
-    //     }
-    //   })
-    // ),
     catchError(error => failedFetchUserData(error))
   )
 

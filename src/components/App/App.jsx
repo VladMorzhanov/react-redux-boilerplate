@@ -1,3 +1,4 @@
+import './App.styl'
 import React from 'react'
 import { Provider } from 'react-redux'
 import { createBrowserHistory } from 'history'

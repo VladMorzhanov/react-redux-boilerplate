@@ -48,7 +48,7 @@ module.exports = {
         include: paths.appSrc
       },
       {
-        test: /\.(css|scss|sass)$/,
+        test: /\.(css|styl)$/,
         use: [
           {
             loader: 'style-loader',
@@ -63,7 +63,7 @@ module.exports = {
             }
           },
           {
-            loader: 'sass-loader',
+            loader: 'stylus-loader',
             options: {
               sourceMap: true
             }
@@ -109,7 +109,7 @@ module.exports = {
     // https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
     // You can remove this if you don't use Moment.js:
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new FaviconsWebpackPlugin('./assets/favicon/fav.png'),
+    new FaviconsWebpackPlugin('./assets/favicon/fav.png')
   ],
   devServer: DevServerConfig,
   node: {

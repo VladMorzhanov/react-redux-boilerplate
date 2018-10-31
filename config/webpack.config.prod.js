@@ -121,11 +121,27 @@ module.exports = {
         include: paths.appSrc
       },
       {
-        test: /\.(css|sass|scss)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: ['css-loader', 'sass-loader']
-        })
+        test: /\.(css|styl)$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          },
+          {
+            loader: 'stylus-loader',
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
       },
       { test: /\.html$/, use: 'html-loader' },
       {

@@ -1,3 +1,4 @@
+import './Container.styl'
 import React from 'react'
 
 export const Container = ({ children, title }) => (
