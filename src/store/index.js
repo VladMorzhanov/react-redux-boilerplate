@@ -1,12 +1,8 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux'
 import { createEpicMiddleware, combineEpics } from 'redux-observable'
 import appReducer, { appEpics } from '../components/App/ducks'
-import homeReducer from '../components/Home/ducks'
 import profileReducer, { profileEpics } from '../components/Profile/ducks'
-
-const epicMiddleware = createEpicMiddleware()
-
-const epics = combineEpics(appEpics, profileEpics)
+import homeReducer from '../components/Home/ducks'
 
 const configure = (initialState = {}) => {
   const reducer = combineReducers({
@@ -14,7 +10,15 @@ const configure = (initialState = {}) => {
     profile: profileReducer,
     home: homeReducer
   })
-  return createStore(
+
+  const epics = combineEpics(
+    ...Object.values(appEpics),
+    ...Object.values(profileEpics)
+  )
+
+  const epicMiddleware = createEpicMiddleware()
+
+  const store = createStore(
     reducer,
     initialState,
     compose(
@@ -22,8 +26,9 @@ const configure = (initialState = {}) => {
       window.devToolsExtension ? window.devToolsExtension() : f => f
     )
   )
-}
+  epicMiddleware.run(epics)
 
-epicMiddleware.run(epics)
+  return store
+}
 
 export default configure

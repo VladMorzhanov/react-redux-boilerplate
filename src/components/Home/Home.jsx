@@ -6,30 +6,40 @@ import Container from '../shared/Container/Container'
 import { homeSelectors, homeActions } from './ducks'
 import { appActions } from '../App/ducks'
 
-const Home = ({
-  counter,
-  increaseCounter,
-  descreaseCounter,
-  startAsyncAction
-}) => (
-  <>
-    <Header title="Home Page" />
-    <Container title="Home page content">
-      <button type="button" onClick={increaseCounter}>
-        +
-      </button>
-      <span>{counter}</span>
-      <button type="button" onClick={descreaseCounter}>
-        -
-      </button>
-      <div>
-        <button type="button" onClick={startAsyncAction}>
-          Start async action
-        </button>
-      </div>
-    </Container>
-  </>
-)
+class Home extends React.Component {
+  componentDidMount() {
+    const { startAsyncAction } = this.props
+    startAsyncAction()
+  }
+
+  render() {
+    const {
+      counter,
+      increaseCounter,
+      descreaseCounter,
+      startAsyncAction
+    } = this.props
+    return (
+      <>
+        <Header title="Home Page" />
+        <Container title="Home page content">
+          <button type="button" onClick={increaseCounter}>
+            +
+          </button>
+          <span>{counter}</span>
+          <button type="button" onClick={descreaseCounter}>
+            -
+          </button>
+          <div>
+            <button type="button" onClick={startAsyncAction}>
+              Start async action
+            </button>
+          </div>
+        </Container>
+      </>
+    )
+  }
+}
 
 Home.propTypes = {
   counter: PropTypes.number.isRequired,
