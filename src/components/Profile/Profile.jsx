@@ -33,7 +33,7 @@ export class Profile extends React.Component {
               type="button"
               onClick={fetchUserData}
             >
-              Change user data
+              Change user data asynchronously
             </button>
           </div>
         </Container>
