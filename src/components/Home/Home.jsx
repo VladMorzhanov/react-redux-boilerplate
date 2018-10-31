@@ -21,23 +21,38 @@ class Home extends React.Component {
       startAsyncAction
     } = this.props
     return (
-      <>
+      <div className="home-page">
         <Header title="Home Page" />
         <Container title="Home page content">
-          <button type="button" onClick={increaseCounter}>
-            +
-          </button>
-          <span>{counter}</span>
-          <button type="button" onClick={descreaseCounter}>
-            -
-          </button>
+          <div>You can review actions in Redux dev tools</div>
           <div>
-            <button type="button" onClick={startAsyncAction}>
+            <button
+              className="handle-button"
+              type="button"
+              onClick={descreaseCounter}
+            >
+              -
+            </button>
+            <span>{counter}</span>{' '}
+            <button
+              className="handle-button"
+              type="button"
+              onClick={increaseCounter}
+            >
+              +
+            </button>
+          </div>
+          <div>
+            <button
+              className="async-action-button"
+              type="button"
+              onClick={startAsyncAction}
+            >
               Start async action
             </button>
           </div>
         </Container>
-      </>
+      </div>
     )
   }
 }

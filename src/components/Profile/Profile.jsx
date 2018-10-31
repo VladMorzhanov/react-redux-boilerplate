@@ -16,7 +16,7 @@ export class Profile extends React.Component {
   render() {
     const { username, email, fetchUserData } = this.props
     return (
-      <>
+      <div className="profile-page">
         <Header title="Profile Page" />
         <Container title="Profile page content">
           <div>
@@ -28,12 +28,16 @@ export class Profile extends React.Component {
             {email}
           </div>
           <div>
-            <button type="button" onClick={fetchUserData}>
+            <button
+              className="async-action-button"
+              type="button"
+              onClick={fetchUserData}
+            >
               Change user data
             </button>
           </div>
         </Container>
-      </>
+      </div>
     )
   }
 }
