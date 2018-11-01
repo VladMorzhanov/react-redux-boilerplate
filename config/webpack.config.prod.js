@@ -6,6 +6,7 @@ const ManifestPlugin = require('webpack-manifest-plugin')
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin')
 const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const eslintFormatter = require('react-dev-utils/eslintFormatter')
 const InterpolateHTMLPlugin = require('./plugins/InterpolateHTMLPlugin')
 const paths = require('./paths')
 const getClientEnvironment = require('./env')
@@ -110,6 +111,20 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve('eslint')
+            },
+            loader: require.resolve('eslint-loader')
+          }
+        ],
+        include: paths.appSrc
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,

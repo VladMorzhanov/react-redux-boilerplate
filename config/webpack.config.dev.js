@@ -3,6 +3,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin')
+const eslintFormatter = require('react-dev-utils/eslintFormatter')
 const getClientEnvironment = require('./env')
 const InterpolateHTMLPlugin = require('./plugins/InterpolateHTMLPlugin')
 
@@ -37,6 +38,20 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(js|jsx)$/,
+        enforce: 'pre',
+        use: [
+          {
+            options: {
+              formatter: eslintFormatter,
+              eslintPath: require.resolve('eslint')
+            },
+            loader: require.resolve('eslint-loader')
+          }
+        ],
+        include: paths.appSrc
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
