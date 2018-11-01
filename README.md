@@ -53,14 +53,17 @@ yarn lint  // lint js files with eslint
 - <a href="https://redux.js.org/">Redux</a>
 - <a href="https://redux-observable.js.org/">Redux-observable</a>
 - <a href="https://rxjs-dev.firebaseapp.com/">RxJS</a>
+- <a href="https://github.com/reduxjs/reselect">Reselect</a>
 - <a href="https://webpack.js.org/">Webpack 4</a>
 - <a href="https://eslint.org/">ESLint</a>
 - <a href="https://github.com/prettier/prettier">Prettier</a>
+- <a href="https://github.com/axios/axios">Axios</a>
 - <a href="https://babeljs.io/">Babel</a>
 - <a href="https://sass-lang.com/">Stylus</a>
 - <a href="https://postcss.org/">PostCSS</a>
 - <a href="https://jestjs.io/">Jest</a>
 - <a href="https://github.com/airbnb/enzyme">Enzyme</a>
+- <a href="https://github.com/JedWatson/classnames">Classnames</a>
 
 ## Contributing
 
